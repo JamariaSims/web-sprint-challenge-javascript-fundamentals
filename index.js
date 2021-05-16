@@ -109,7 +109,9 @@ const zooAnimals = [
   */
 
 function animalNames(passingData) {
+  // Declaring a const named displayNames as a empty array
   const displayNames = [];
+  // For every pass push `name: ${passingData[i].animal_name}, scientific: ${passingData[i].scientific_name}` ${passingData[i].animal_name} is the animal_name,[i] is the index
   for (let i = 0; i < passingData.length; i++) {
     displayNames.push(
       `name: ${passingData[i].animal_name}, scientific: ${passingData[i].scientific_name}`
@@ -125,6 +127,7 @@ function animalNames(passingData) {
   */
 
 function lowerCaseNames(zooAnimals) {
+  //Returning x.animal_name, x is the index reference.
   return zooAnimals.map((x) => {
     return x.animal_name.toLowerCase();
   });
@@ -136,6 +139,7 @@ function lowerCaseNames(zooAnimals) {
   */
 
 function lowPopulationAnimals(passingData) {
+  // checking each item to see if population is less than 5
   return passingData.filter(function (y) {
     return y.population < 5;
   });
@@ -148,6 +152,7 @@ function lowPopulationAnimals(passingData) {
   */
 
 function USApop(passingData) {
+  //Going through the array adding the current population index to the previous population with 0 been the starting point
   var x = passingData.reduce(function (accumulator, current) {
     return accumulator + current.population;
   }, 0);
@@ -162,25 +167,26 @@ function USApop(passingData) {
  * The consume function should return the invocation of cb, passing a and b into cb as arguments
  */
 
+//Returning anything passed into this function through cb(a,b) 
 function consume(a, b, cb) {
   return cb(a, b);
 }
 
 /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
 // 🦁🦁🦁 Use add to return the sum of two numbers 🦁🦁🦁
-
+// Adding the values returned from consume()
 function add(a, b) {
   return a + b;
 }
 
 // 🦁🦁🦁 Use multiply to return the product of two numbers 🦁🦁🦁
-
+// multipling the values returned from consume()
 function multiply(a, b) {
   return a * b;
 }
 
 // 🦁🦁🦁 Use greeting to accept a first and last name and return "Hello {first-name} {last-name}, nice to meet you!" 🦁🦁🦁
-
+// Returning a String with passed in variables
 function greeting(firstname, lastname) {
   return `Hello ${firstname} ${lastname}, nice to meet you!`;
 }
@@ -199,6 +205,7 @@ console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice t
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
 function CuboidMaker(length, width, height) {
+  //initializing 
   this.length = length = 4;
   this.width = width = 5;
   this.height = height = 5;
@@ -208,6 +215,7 @@ function CuboidMaker(length, width, height) {
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   Formula for cuboid volume: length * width * height   */
 CuboidMaker.prototype.volume = function(){
+  //Returning the results of the CuboidMaker passed through a formula
   return this.length * this.width * this.height
 }
 /* 🐴🐴🐴 Step 3: Surface Area Method 🐴🐴🐴
@@ -215,12 +223,13 @@ CuboidMaker.prototype.volume = function(){
   Formula for cuboid surface area of a cube: 
   2 * (length * width + length * height + width * height)  */
 CuboidMaker.prototype.surfaceArea = function(){
-  console.log(`show me ${this.height} ${this.width} ${this.length}`)
+  //Returning the results of the CuboidMaker passed through a formula
   return 2 * (this.length * this.width + this.length * this.height + this.width * this.height)
 }
 /* 🐴🐴🐴 Step 4: Create a new object that uses CuboidMaker 🐴🐴🐴
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
+  //Creating a object named cuboid with CuboidMaker been the maker.
 const cuboid = new CuboidMaker({
   length:4,
   width:5,
@@ -233,11 +242,15 @@ console.log(cuboid.surfaceArea()); // 130
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
+//Creating a class from CuboidMaker
 class CuboidMakerTwo extends CuboidMaker {
+  //Pulling all vars
   constructor(atts){
+    //Pulling all methods
     super(atts)
   }
 }
+//Creating a new object from CuboidMaker
 const cuboidTwo = new CuboidMaker({
   length:4,
   width:5,
