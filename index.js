@@ -28,7 +28,9 @@ For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you ma
 
 function summation(num) {
   var y = 0;
+  // Do this loop num times. Num is the number that's passed in. 
   for (let i = 0; i <= num; i++) {
+    // Every pass add i to y. So I'm just adding 0+1+2+3+4 if its 4 and 0+1+2+3+4+5+6+7+8 if it's 8
     y = y + i;
   }
   return y;
